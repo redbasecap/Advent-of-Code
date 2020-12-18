@@ -19,18 +19,21 @@ def solution2(pws_list):
     counter_valid = 0
     for i in range(0,len(pws_list)):
         act_dict = pws_list[i]
-        if act_dict['password'][act_dict['lower']-1] == (act_dict['letter']) or act_dict['password'][act_dict['upper']-1] == (act_dict['letter']):
-            print( act_dict['password'])
-            print(act_dict['password'][act_dict['lower']-1])
-            print(act_dict['lower']-1)
-            print(act_dict['password'][act_dict['upper']-1])
-            print(act_dict['upper']-1)
+        # 1-3 abc 1=a in der Liste aber 0
+        if (act_dict['password'][act_dict['lower']-1] == (act_dict['letter'])) ^ (act_dict['password'][act_dict['upper']-1] == (act_dict['letter'])):
             counter_valid += 1
+                #print( act_dict['password'])
+            
+            #print(act_dict['password'][act_dict['lower']-1])
+            #print(act_dict['lower'])
+            #print(act_dict['password'][act_dict['upper']-1])
+            #print(act_dict['upper'])
+            #print(act_dict['letter'])
+            
         i += 1
         
     return counter_valid
     
-#%%
 pws_list = []
    
 with open('input.txt','r') as input:
@@ -55,3 +58,5 @@ print("AOC Tag 2 Lösung 1:", solution1(pws_list))
 print("AOC Tag 2 Lösung 2:", solution2(pws_list))
          
             
+
+# %%
