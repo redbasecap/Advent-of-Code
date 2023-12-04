@@ -1,33 +1,5 @@
 
 
-class Group:
-    def __init__(self, backpack=[]):
-        # self.backpack1 = backpack1
-        self.backpack1 = backpack[0]
-        self.backpack2 = backpack[1]
-        self.backpack3 = backpack[2]    
-        self.error = self.check()
-        print(self.error)
-
-    def __str__(self):
-        return str(self.compartment1) + str(self.compartment2)
-
-    # list comprahension to check if 3 string has a matching letter
-    def check(self):
-        return [x for x in self.backpack1 if x in self.backpack2 and x in self.backpack3]
-
-
-    def getPriority(self):
-        error = self.error[0]
-        if error.isupper():
-
-            return ord(error) - 64 + 26
-
-        else:
-
-            return ord(error) - 96
-
-
 # create a class to represent one backback and every backpack has two compartments  (class Compartments)
 class Backpack:
 
@@ -94,7 +66,7 @@ class Compartments:
 
 
 # open input file and read it
-with open("input_small.txt", "r") as file:
+with open("input.txt", "r") as file:
     # read the file and split it into a list
     # the split function splits the string at every newline
     # and returns a list with all lines
@@ -108,19 +80,6 @@ with open("input_small.txt", "r") as file:
         backpacks.append(backpack)
         # backpacks[backpack] = backpack.get_error()
 
-    # Solution 2
-    group_counter = 0
-    groups = []
-    temp = []
-    for line in lines:
-        if group_counter <= 2:
-            temp.append(line)
-            group_counter += 1
-        else:
-            groups.append(Group(backpack=temp))
-            temp.clear()
-
-    # print(groups)
 
 ################
 ## SOLUTION 1 ##
